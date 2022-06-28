@@ -9,12 +9,14 @@
         "ext-iconv": "*",
         "symfony/console": "6.1.*",
         "symfony/dotenv": "6.1.*",
+        "symfony/event-dispatcher": "6.1.*",
         "symfony/flex": "^2",
         "symfony/framework-bundle": "6.1.*",
+        "symfony/google-mailer": "6.1.*",
+        "symfony/mailer": "6.1.*",
+        "symfony/mime": "6.1.*",
         "symfony/runtime": "6.1.*",
         "symfony/yaml": "6.1.*"
-    },
-    "require-dev": {
     },
     "config": {
         "allow-plugins": {
@@ -30,12 +32,12 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "ColorzExporter\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "App\\Tests\\": "tests/"
+            "ColorzExporter\\Tests\\": "tests/"
         }
     },
     "replace": {
