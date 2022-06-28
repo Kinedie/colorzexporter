@@ -5,6 +5,7 @@ namespace ColorzExporter\Service\Export;
 use ColorzExporter\EventSubscriber\Event\TeamsExportEvent;
 use ColorzExporter\Exception\EmptyJsonInputFileException;
 use ColorzExporter\Service\Export\Formatting\ListOfTeamsFormatter;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use function fclose;
 use function fopen;
 use function fputcsv;
@@ -13,8 +14,9 @@ class TeamsCsvExporter extends CsvExporter
 {
     private ListOfTeamsFormatter $formatter;
 
-    public function __construct(ListOfTeamsFormatter $formatter)
+    public function __construct(ListOfTeamsFormatter $formatter, EventDispatcherInterface $eventDispatcher)
     {
+        parent::__construct($eventDispatcher);
         $this->formatter = $formatter;
     }
 

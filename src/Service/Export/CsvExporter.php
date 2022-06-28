@@ -10,6 +10,11 @@ abstract class CsvExporter
 {
     protected EventDispatcherInterface $eventDispatcher;
 
+    public function __construct(EventDispatcherInterface $eventDispatcher)
+    {
+        $this->eventDispatcher = $eventDispatcher;
+    }
+
     abstract public function export(string $data): void;
 
     public function normalize(string $data): array

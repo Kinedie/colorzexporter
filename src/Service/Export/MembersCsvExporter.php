@@ -6,6 +6,7 @@ use ColorzExporter\EventSubscriber\Event\MembersExportEvent;
 use ColorzExporter\Exception\EmptyJsonInputFileException;
 use ColorzExporter\Exception\NonExistingPowerException;
 use ColorzExporter\Service\Export\Formatting\ListOfMembersFormatter;
+use Psr\EventDispatcher\EventDispatcherInterface;
 use function array_push;
 use function count;
 use function fclose;
@@ -17,8 +18,9 @@ class MembersCsvExporter extends CsvExporter
 {
     private ListOfMembersFormatter $formatter;
 
-    public function __construct(ListOfMembersFormatter $formatter)
+    public function __construct(ListOfMembersFormatter $formatter, EventDispatcherInterface $eventDispatcher)
     {
+        parent::__construct($eventDispatcher);
         $this->formatter = $formatter;
     }
 
